@@ -1,11 +1,10 @@
-from cgitb import text
 import requests
 from requests import get
 from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 
-headers = {"Accept-Language" : "en-US, en;q=0.5"}
+headers = {"Accept-Language" : "en-US, en;q=0.5"} # dictionary
 url = "https://www.imdb.com/search/title/?groups=top_1000&ref_=adv_prv"
 results = requests.get(url, headers=headers)
 
@@ -35,7 +34,6 @@ for container in movie_div :
     imdb_ratings.append(imdb)
 
     nv = container.find_all('span', attrs={'name': 'nv'})
-
     vote = nv[0].text
     votes.append(vote)
 
