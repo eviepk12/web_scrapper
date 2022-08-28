@@ -60,4 +60,5 @@ movies['votes'] = movies['votes'].str.replace(',', '').astype(int)
 movies['us_grossMillions'] = movies['us_grossMillions'].map(lambda x: x.lstrip('$').rstrip('M'))
 movies['us_grossMillions'] = pd.to_numeric(movies['us_grossMillions'], errors='coerce')
 
-movies.to_csv('movies.csv')
+if __name__ == "__main__":
+    movies.to_csv('movies.csv')
